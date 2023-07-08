@@ -1,8 +1,19 @@
-import React from 'react';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { NativeBaseProvider, Box } from "native-base";
 
-function App() {
+import Home from "./components/Home";
+
+const App:React.FC = () => {
   return (
-    <div>Game Collection</div>
+    <BrowserRouter>
+      <NativeBaseProvider>
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="hello" element={<Box>Hello world</Box>}/>
+        </Routes>
+      </NativeBaseProvider>
+    </BrowserRouter>
   );
 }
 
