@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 const Home: React.FC = () => {
   return (
     <>
-      <Navbar heading="Start"/>
+      <Navbar heading="Start" />
       <h1>Home</h1>
     </>
   )
