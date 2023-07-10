@@ -11,15 +11,15 @@ const Navbar: React.FC<Props> = ({ heading }) => {
 
   return (
     <>
-      <Row bg="indigo.100" alignItems="center" justifyContent="space-between" p="1">
+      <Row bg="primary.50" alignItems="center" justifyContent="space-between" p="1">
         <Row alignItems="center">
           <IconButton
-            icon={<HamburgerIcon size="lg" color="dark.50" />}
+            icon={<HamburgerIcon size="lg" color="darkText" />}
             onPress={() => console.log("imagine menu here pls")}
           />
           <Button onPress={() => navigate('/start')} variant="ghost">
             <Row alignItems="center">
-              <PlayIcon size="md" color="dark.50" />
+              <PlayIcon size="md" color="darkText" />
               <Heading size="md">GameCollection</Heading>
             </Row>
           </Button>
@@ -29,9 +29,9 @@ const Navbar: React.FC<Props> = ({ heading }) => {
         </Row>
         <Row alignItems="center">
           {/* placeholders */}
-          <IconButton icon={<CircleIcon size="lg" color="dark.50" />} />
-          <IconButton icon={<CircleIcon size="lg" color="dark.50" />} />
-          <IconButton icon={<CircleIcon size="lg" color="dark.50" />} />
+          <IconButton icon={<CircleIcon size="lg" color="darkText" />} />
+          <IconButton icon={<CircleIcon size="lg" color="darkText" />} />
+          <IconButton icon={<CircleIcon size="lg" color="darkText" />} />
         </Row>
       </Row>
     </>
