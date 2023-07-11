@@ -1,13 +1,18 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, extendTheme } from "native-base";
 
 import Home from "./components/Home";
 
 const App: React.FC = () => {
+  const config = {
+    useSystemColorMode: false,
+    initialColorMode: 'dark',
+  };
+
   return (
     <BrowserRouter>
-      <NativeBaseProvider>
+      <NativeBaseProvider theme={extendTheme({ config })}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/start" element={<Home />} />
