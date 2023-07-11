@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { NativeBaseProvider, extendTheme } from "native-base";
+import { ColorMode, NativeBaseProvider, extendTheme } from "native-base";
 
 import Home from "./components/Home";
 
@@ -12,9 +12,20 @@ const App: React.FC = () => {
     }
   });
 
+  const colorModeManager: StorageManager = {
+    get: async () => {
+      let val = localStorage.getItem('@color-mode');
+      return val === 'dark' ? 'dark' : 'light';
+    },
+    set: async (value: ColorMode) => {
+      let strValue = value ? value.toString() : '';
+      localStorage.setItem('@color-mode', strValue);
+    },
+  };
+
   return (
     <BrowserRouter>
-      <NativeBaseProvider theme={myTheme}>
+      <NativeBaseProvider theme={myTheme} colorModeManager={colorModeManager}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/start" element={<Home />} />
