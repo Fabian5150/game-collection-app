@@ -1,6 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useColorMode, Row, Heading, HamburgerIcon, IconButton, CircleIcon, PlayIcon, Button, useColorModeValue } from "native-base";
+import {
+  useColorMode,
+  useColorModeValue,
+  Row,
+  Heading,
+  Button,
+  IconButton,
+  HamburgerIcon,
+  CircleIcon,
+  PlayIcon,
+  MoonIcon,
+  SunIcon
+} from "native-base";
 
 type Props = {
   heading: String
@@ -10,7 +22,7 @@ const Navbar: React.FC<Props> = ({ heading }) => {
   const navigate = useNavigate();
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const text = useColorModeValue("Light", "Dark");
+  const text = useColorModeValue("darkText", "light.50");
   const bg = useColorModeValue("warmGray.50", "coolGray.800");
 
   return (
@@ -32,11 +44,15 @@ const Navbar: React.FC<Props> = ({ heading }) => {
           <Heading size="md">{heading}</Heading>
         </Row>
         <Row alignItems="center">
-          {/* placeholders */}
           <IconButton
-            icon={<CircleIcon size="lg" color={text} />}
+            icon={
+              colorMode === "light" ?
+                <MoonIcon size="lg" color={text} /> :
+                <SunIcon size="lg" color={text} />
+            }
             onPress={() => toggleColorMode()}
           />
+          {/* placeholders */}
           <IconButton icon={<CircleIcon size="lg" color={text} />} />
           <IconButton icon={<CircleIcon size="lg" color={text} />} />
         </Row>
